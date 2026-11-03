@@ -17,9 +17,11 @@ body:before{top:2%;left:-35px}body:after{right:-35px;bottom:1%}
 .kicker{margin:0 0 10px;font-size:12px;font-weight:900;letter-spacing:.25em;color:#b48bc9}
 h1{margin:0;color:#b887c9;font-size:clamp(29px,7vw,43px);line-height:1.28;letter-spacing:.04em;text-shadow:2px 3px 0 #fbe1f1}
 .sub{margin:11px 0 18px;font-weight:800;color:#9b87b3}
-.candy-scene{height:125px;position:relative;margin:0 auto 12px;max-width:390px;display:flex;align-items:center;justify-content:center;gap:14px;font-size:clamp(42px,10vw,64px);filter:drop-shadow(0 7px 5px #a98bc322)}
-.candy-scene span{display:inline-block;animation:bob 3s ease-in-out infinite}.candy-scene span:nth-child(2){animation-delay:.35s}.candy-scene span:nth-child(3){animation-delay:.7s}.candy-scene span:nth-child(4){animation-delay:1.05s}.candy-scene span:nth-child(5){animation-delay:1.4s}
-@keyframes bob{50%{transform:translateY(-9px) rotate(7deg)}}
+.candy-scene{height:132px;position:relative;margin:0 auto 12px;max-width:390px;display:flex;align-items:center;justify-content:center;gap:clamp(5px,2vw,15px);filter:drop-shadow(0 7px 5px #a98bc322)}
+.candy-scene span{display:inline-flex;width:clamp(48px,13vw,76px);height:clamp(58px,15vw,88px);align-items:center;justify-content:center;animation:bob 3s ease-in-out infinite}
+.candy-scene span:nth-child(2){animation-delay:.35s}.candy-scene span:nth-child(3){animation-delay:.7s}.candy-scene span:nth-child(4){animation-delay:1.05s}.candy-scene span:nth-child(5){animation-delay:1.4s}
+.candy-scene svg{width:100%;height:100%;overflow:visible}
+@keyframes bob{50%{transform:translateY(-9px) rotate(5deg)}}
 .instructions{margin:10px 0 9px;text-align:left;font-weight:900;color:#8f7aa7}
 input{width:100%;height:65px;border:2px solid #e9c8e7;border-radius:22px;background:#fffdfd;color:#806b9b;font-size:27px;letter-spacing:.2em;text-align:center;outline:none;box-shadow:inset 0 2px 7px #d9c9e522}
 input::placeholder{color:#cbbbd5}input:focus{border-color:#c8a9e6;box-shadow:0 0 0 5px #eadcf766}
@@ -42,7 +44,13 @@ button:disabled{opacity:.72;cursor:default}
 <p class="kicker">SWEET LUCKY CHALLENGE</p>
 <h1>ミラクルスイーツ<br>チャレンジ</h1>
 <p class="sub">お菓子の国で、幸運をつかもう！</p>
-<div class="candy-scene" aria-hidden="true"><span>🍡</span><span>🍭</span><span>☁️</span><span>🧁</span><span>✨</span></div>
+<div class="candy-scene" aria-hidden="true">
+<span><svg viewBox="0 0 80 90"><rect x="13" y="22" width="54" height="48" rx="19" fill="#f9e0f2" stroke="#edb9dd" stroke-width="2"/><path d="M18 39 Q39 28 62 39" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round"/><circle cx="32" cy="48" r="2" fill="#b98cae"/><circle cx="49" cy="48" r="2" fill="#b98cae"/><path d="M35 56 Q40 61 45 56" fill="none" stroke="#d69abf" stroke-width="2" stroke-linecap="round"/></svg></span>
+<span><svg viewBox="0 0 80 90"><path d="M40 48 L55 82" stroke="#d9b8a8" stroke-width="5" stroke-linecap="round"/><circle cx="36" cy="31" r="23" fill="#f9c7e4" stroke="#e9a9d2" stroke-width="2"/><circle cx="36" cy="31" r="15" fill="none" stroke="#fff5fb" stroke-width="5"/><path d="M22 18 Q35 8 48 20" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/></svg></span>
+<span><svg viewBox="0 0 80 90"><path d="M17 56 Q8 54 10 44 Q12 34 24 35 Q28 18 44 22 Q57 23 59 37 Q72 37 71 49 Q70 58 59 58Z" fill="#e4dcff" stroke="#c8b9ef" stroke-width="2"/><path d="M23 43 Q40 32 57 43" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round"/></svg></span>
+<span><svg viewBox="0 0 80 90"><path d="M15 42 L65 42 L59 72 Q40 82 21 72Z" fill="#c9e6f7" stroke="#a8d0e9" stroke-width="2"/><path d="M14 43 Q40 34 66 43 L65 51 Q40 58 15 51Z" fill="#f7c6df"/><path d="M18 40 Q15 25 28 26 Q30 10 43 18 Q55 9 60 28 Q69 31 65 42Z" fill="#fff0f8" stroke="#edc4df" stroke-width="2"/><circle cx="40" cy="29" r="3" fill="#f3b2d3"/></svg></span>
+<span><svg viewBox="0 0 80 90"><path d="M40 10 L47 31 L69 32 L52 46 L58 68 L40 55 L22 68 L28 46 L11 32 L33 31Z" fill="#f9e6a9" stroke="#eed58b" stroke-width="2" stroke-linejoin="round"/><path d="M40 18 L44 32" stroke="#fff7d9" stroke-width="4" stroke-linecap="round"/></svg></span>
+</div>
 <p class="instructions">くじ券の番号（4桁）</p>
 <input id="ticketNumber" type="text" inputmode="numeric" autocomplete="off" maxlength="4" placeholder="番号を入力" aria-label="抽選番号">
 <button id="draw" type="button">🌈 ミラクル抽選スタート！</button>
