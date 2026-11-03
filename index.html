@@ -25,12 +25,13 @@ h1{margin:0;color:#b887c9;font-size:clamp(29px,7vw,43px);line-height:1.28;letter
 .instructions{margin:10px 0 9px;text-align:left;font-weight:900;color:#8f7aa7}
 input{width:100%;height:65px;border:2px solid #e9c8e7;border-radius:22px;background:#fffdfd;color:#806b9b;font-size:27px;letter-spacing:.2em;text-align:center;outline:none;box-shadow:inset 0 2px 7px #d9c9e522}
 input::placeholder{color:#cbbbd5}input:focus{border-color:#c8a9e6;box-shadow:0 0 0 5px #eadcf766}
-button{position:relative;width:100%;min-height:76px;margin:18px 0 0;padding:15px 24px;border:3px solid #fff;border-radius:50% / 58%;background:linear-gradient(180deg,#fff 0%,#f4eaff 38%,#dcecff 100%);color:#987bb0;font-family:inherit;font-size:clamp(19px,5vw,24px);font-weight:1000;letter-spacing:.08em;box-shadow:0 7px 0 #d8c8e8,0 12px 25px #c9b5dc55,inset 0 3px 8px #fff;cursor:pointer;transition:transform .2s,filter .2s}
-button:before,button:after{content:"";position:absolute;z-index:-1;background:inherit;border:3px solid #fff;border-radius:50%;box-shadow:inset 0 3px 8px #fff}
-button:before{width:43px;height:39px;left:9%;top:-11px}
-button:after{width:51px;height:43px;right:9%;top:-13px}
+button{position:relative;isolation:isolate;overflow:visible;width:100%;min-height:78px;margin:21px 0 0;padding:15px 24px;border:3px solid #fff;border-radius:48% / 58%;background:linear-gradient(180deg,#fff 0%,#f8f0ff 45%,#dff1ff 100%);color:#987bb0;font-family:inherit;font-size:clamp(19px,5vw,24px);font-weight:1000;letter-spacing:.08em;box-shadow:0 7px 0 #d8c8e8,0 12px 25px #c9b5dc55,inset 0 3px 8px #fff;cursor:pointer;transition:transform .2s,filter .2s}
+button:before,button:after{content:"";position:absolute;z-index:-1;background:linear-gradient(180deg,#fff 0%,#f8f0ff 58%,#dff1ff 100%);border:3px solid #fff;border-bottom:0;border-radius:50%;pointer-events:none}
+button:before{width:46px;height:38px;left:12%;top:-12px}
+button:after{width:54px;height:43px;right:12%;top:-15px}
+button span{position:relative;z-index:1;display:block}
 
-button:not(:disabled):active{transform:translateY(3px);box-shadow:0 3px 0 #d6c1df,0 7px 16px #c9b5dc44}
+button:not(:disabled):active{transform:translateY(3px);box-shadow:0 3px 0 #d8c8e8,0 7px 16px #c9b5dc44}
 button:disabled{opacity:.72;cursor:default}
 .note{margin:20px 0 0;font-size:12px;line-height:1.8;color:#a99ab7}
 #result{display:none;margin-top:19px;padding:19px 13px;border:2px dashed #dfc5e8;border-radius:25px;background:linear-gradient(135deg,#fffafd,#f7f1ff)}
@@ -57,14 +58,14 @@ button:disabled{opacity:.72;cursor:default}
 </div>
 <p class="instructions">くじ券の番号（4桁）</p>
 <input id="ticketNumber" type="text" inputmode="numeric" autocomplete="off" maxlength="4" placeholder="番号を入力" aria-label="抽選番号">
-<button id="draw" type="button">ミラクルスタート</button>
+<button id="draw" type="button"><span>ミラクルスタート</span></button>
 <section id="result" aria-live="polite"><h2 id="resultTitle"></h2><p id="resultText"></p><p id="screenshotNote">📸 スクリーンショットを撮ってね！</p></section>
 <p class="note">番号1つにつき抽選は1回限りです。使用済みの番号は、別のスマホからも再使用できません。</p>
 </section></main>
 <script>
 const button=document.getElementById("draw"),input=document.getElementById("ticketNumber"),result=document.getElementById("result"),title=document.getElementById("resultTitle"),message=document.getElementById("resultText"),shot=document.getElementById("screenshotNote");
 function candyBurst(){const sweets=["🍬","🍭","🍫","🍩","🍪","🧁","🍡","🍰","🍓","✨"];for(let i=0;i<42;i++){const el=document.createElement("span");el.className="confetti";el.textContent=sweets[Math.floor(Math.random()*sweets.length)];el.style.left=Math.random()*100+"vw";el.style.setProperty("--dx",(Math.random()-.5)*240+"px");el.style.setProperty("--dur",(2.1+Math.random()*2.2)+"s");el.style.animationDelay=Math.random()*.5+"s";document.body.appendChild(el);setTimeout(()=>el.remove(),5000)}}
-button.addEventListener("click",async()=>{const number=input.value.trim();if(!/^\d{4}$/.test(number)){alert("抽選番号を4桁の数字で入力してください！");input.focus();return}button.disabled=true;input.disabled=true;button.textContent="🍬 抽選中…";try{const response=await fetch("/api/draw",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({number})});const data=await response.json();if(!response.ok)throw new Error(data.error||"抽選できませんでした");title.textContent=data.win?"🎉 大当たり！景品GET！":"今回ははずれ…";message.textContent=data.win?"おめでとうございます！景品をお受け取りください！":"参加ありがとう！またの挑戦をお待ちしています。";shot.style.display=data.win?"block":"none";result.classList.add("show");if(data.win)candyBurst();button.textContent="抽選終了"}catch(e){alert(e.message);button.disabled=false;input.disabled=false;button.textContent="🌈 ミラクル抽選スタート！"}});
+button.addEventListener("click",async()=>{const number=input.value.trim();if(!/^\d{4}$/.test(number)){alert("抽選番号を4桁の数字で入力してください！");input.focus();return}button.disabled=true;input.disabled=true;button.querySelector("span").textContent="抽選中…";try{const response=await fetch("/api/draw",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({number})});const data=await response.json();if(!response.ok)throw new Error(data.error||"抽選できませんでした");title.textContent=data.win?"🎉 大当たり！景品GET！":"今回ははずれ…";message.textContent=data.win?"おめでとうございます！景品をお受け取りください！":"参加ありがとう！またの挑戦をお待ちしています。";shot.style.display=data.win?"block":"none";result.classList.add("show");if(data.win)candyBurst();button.querySelector("span").textContent="抽選終了"}catch(e){alert(e.message);button.disabled=false;input.disabled=false;button.querySelector("span").textContent="ミラクルスタート"}});
 </script>
 </body>
 </html>
