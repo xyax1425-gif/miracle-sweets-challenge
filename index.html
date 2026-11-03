@@ -6,40 +6,42 @@
 <meta name="theme-color" content="#f4d8f0">
 <title>ミラクルスイーツチャレンジ</title>
 <style>
-:root{--pink:#f7c9df;--lavender:#d8ccf5;--blue:#c8e8f7;--cream:#fffaf2;--ink:#927b9e}
+:root{--pink:#f6b9d6;--lavender:#cbb8ef;--blue:#b8e4f5;--cream:#fff9ed;--ink:#80678f}
 *{box-sizing:border-box}
-body{margin:0;min-height:100svh;padding:25px 15px;display:grid;place-items:center;overflow-x:hidden;position:relative;font-family:system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;color:var(--ink);background:radial-gradient(ellipse at 12% 13%,#fff 0 5%,transparent 29%),radial-gradient(ellipse at 88% 80%,#fff 0 4%,transparent 27%),linear-gradient(145deg,#ffeaf3 0%,#f0e8ff 48%,#e3f5ff 100%)}
-body:before,body:after{content:"☁";position:fixed;z-index:0;color:#fff9;font-size:clamp(130px,30vw,250px);pointer-events:none;filter:drop-shadow(0 10px 16px #bda9e522)}
-body:before{top:-30px;left:-48px}body:after{right:-45px;bottom:-30px}
-.wrap{width:100%;max-width:620px;position:relative;z-index:1}
-.card{position:relative;text-align:center;padding:34px 27px 30px;border:4px solid #fff;border-radius:44px;background:linear-gradient(155deg,#fffefaF2,#fff7fff2);box-shadow:0 20px 55px #a995c533,inset 0 0 0 2px #f8dced;overflow:hidden}
-.card:before{content:"✧ ｡ﾟ ♡";position:absolute;top:13px;left:18px;color:#e9b8d8;font-size:17px;letter-spacing:5px}.card:after{content:"♡ ﾟ｡ ✧";position:absolute;right:18px;bottom:10px;color:#c8b8ec;font-size:17px;letter-spacing:5px}
-.kicker{margin:0 0 10px;font-size:11px;font-weight:1000;letter-spacing:.28em;color:#c18fbd}
-h1{margin:0;color:#bb8fc9;font-size:clamp(30px,7vw,44px);line-height:1.25;letter-spacing:.04em;text-shadow:2px 3px 0 #fce3f0}
-.sub{margin:12px 0 13px;font-weight:800;color:#a18bb5;font-size:14px}
-.candy-scene{height:155px;position:relative;margin:0 auto 13px;max-width:430px;display:flex;align-items:center;justify-content:center;gap:clamp(3px,2vw,13px);filter:drop-shadow(0 8px 7px #a98bc322)}
-.candy-scene:before{content:"✦  ˚  ☁  ˚  ✧";position:absolute;top:0;left:0;right:0;color:#e9c5df;font-size:17px;letter-spacing:12px;pointer-events:none}
-.candy-scene span{display:inline-flex;width:clamp(52px,14vw,82px);height:clamp(65px,17vw,98px);align-items:center;justify-content:center;animation:bob 3.6s ease-in-out infinite}
+body{margin:0;min-height:100svh;padding:24px 14px 38px;display:flex;align-items:center;justify-content:center;overflow-x:hidden;position:relative;font-family:system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;color:var(--ink);background:linear-gradient(180deg,#dff4ff 0%,#f7e8ff 34%,#ffe7ef 68%,#fff1d9 100%)}
+body:before{content:"☁️　🍭　☁️　🍬　☁️　🍓　☁️";position:fixed;top:12px;left:0;width:100%;text-align:center;font-size:clamp(22px,5vw,42px);letter-spacing:8px;opacity:.68;pointer-events:none;white-space:nowrap}
+body:after{content:"🍄　🍬　🧁　🍭　🍄　🍬　🧁";position:fixed;bottom:5px;left:0;width:100%;text-align:center;font-size:clamp(21px,5vw,38px);letter-spacing:7px;opacity:.7;pointer-events:none;white-space:nowrap}
+.wrap{width:100%;max-width:650px;position:relative;z-index:1}
+.card{position:relative;text-align:center;padding:28px 25px 30px;border:4px solid #fff;border-radius:48px;background:linear-gradient(160deg,#fffdf3ed 0%,#fff6f9e8 48%,#f6f1ffed 100%);box-shadow:0 15px 45px #9879b533,inset 0 0 0 2px #f6d9ed;overflow:hidden}
+.card:before{content:"✧･ﾟ: *✧･ﾟ:*";position:absolute;top:13px;left:18px;color:#e9aaca;font-size:16px;letter-spacing:3px}.card:after{content:"*:･ﾟ✧*:･ﾟ✧";position:absolute;right:18px;bottom:10px;color:#bca5e5;font-size:16px;letter-spacing:3px}
+.kicker{margin:0 0 7px;font-size:11px;font-weight:1000;letter-spacing:.3em;color:#ce8db8}
+h1{margin:0;color:#b77bb0;font-size:clamp(31px,7vw,47px);line-height:1.22;letter-spacing:.04em;text-shadow:2px 3px 0 #ffe0ec,4px 5px 0 #fff}
+.sub{margin:10px 0 4px;font-weight:900;color:#9277ac;font-size:15px}
+.candy-scene{height:220px;position:relative;margin:2px auto 8px;max-width:510px;display:flex;align-items:center;justify-content:center;gap:clamp(5px,2vw,17px);filter:drop-shadow(0 9px 8px #a98bc333);border-radius:48% 48% 35% 35%;background:radial-gradient(ellipse at 50% 85%,#ffe1ed 0 25%,#f8e9ff88 55%,transparent 72%)}
+.candy-scene:before{content:"☁️　✦　🍭　✧　☁️　✦　🍬";position:absolute;top:3px;left:0;right:0;color:#d8b5e5;font-size:clamp(16px,4vw,23px);letter-spacing:3px;pointer-events:none}
+.candy-scene:after{content:"🍓　♡　🧁　♡　🍬";position:absolute;bottom:1px;left:0;right:0;font-size:clamp(17px,4vw,24px);letter-spacing:7px;pointer-events:none}
+.candy-scene span{display:inline-flex;width:clamp(58px,15vw,96px);height:clamp(75px,20vw,124px);align-items:center;justify-content:center;animation:bob 3.6s ease-in-out infinite;position:relative;z-index:1}
 .candy-scene span:nth-child(2){animation-delay:.35s}.candy-scene span:nth-child(3){animation-delay:.7s}.candy-scene span:nth-child(4){animation-delay:1.05s}.candy-scene span:nth-child(5){animation-delay:1.4s}
 .candy-scene svg{width:100%;height:100%;overflow:visible}
-@keyframes bob{50%{transform:translateY(-10px) rotate(4deg)}}
-.instructions{margin:12px 0 9px;text-align:left;font-weight:900;color:#9a83ac}
-input{width:100%;height:65px;border:2px solid #ecd1e8;border-radius:24px;background:#fffdfd;color:#927b9e;font-size:27px;letter-spacing:.2em;text-align:center;outline:none;box-shadow:inset 0 2px 8px #d9c9e522,0 5px 15px #ddcbe522}
-input::placeholder{color:#d0bfd6}input:focus{border-color:#d0b5e8;box-shadow:0 0 0 5px #eadcf766}
-button{position:relative;isolation:isolate;overflow:visible;width:100%;min-height:80px;margin:22px 0 0;padding:15px 24px;border:3px solid #fff;border-radius:48% / 58%;background:linear-gradient(180deg,#fff 0%,#f9efff 45%,#e0f2ff 100%);color:#9b80b1;font-family:inherit;font-size:clamp(19px,5vw,24px);font-weight:1000;letter-spacing:.08em;box-shadow:0 7px 0 #ddcde9,0 13px 25px #c9b5dc55,inset 0 3px 9px #fff;cursor:pointer;transition:transform .2s,filter .2s}
-button:before,button:after{content:"";position:absolute;z-index:-1;background:linear-gradient(180deg,#fff 0%,#f9efff 58%,#e0f2ff 100%);border:3px solid #fff;border-bottom:0;border-radius:50%;pointer-events:none}
-button:before{width:48px;height:39px;left:12%;top:-12px}button:after{width:55px;height:44px;right:12%;top:-15px}
+@keyframes bob{50%{transform:translateY(-12px) rotate(4deg)}}
+.instructions{margin:13px 0 9px;text-align:left;font-weight:1000;color:#9278a9}
+input{width:100%;height:65px;border:3px solid #f2c9e1;border-radius:25px;background:#fff;color:#866d9b;font-size:27px;letter-spacing:.2em;text-align:center;outline:none;box-shadow:inset 0 2px 8px #d9c9e522,0 5px 15px #ddcbe522}
+input::placeholder{color:#d5bdd5}input:focus{border-color:#d5a9df;box-shadow:0 0 0 5px #eadcf766}
+button{position:relative;isolation:isolate;overflow:visible;width:100%;min-height:82px;margin:20px 0 0;padding:15px 24px;border:4px solid #fff;border-radius:50% / 58%;background:linear-gradient(100deg,#ffcae4 0%,#e6caff 34%,#c5eaff 68%,#fff0b9 100%);color:#805f9b;font-family:inherit;font-size:clamp(20px,5vw,26px);font-weight:1000;letter-spacing:.08em;text-shadow:0 1px #fff;box-shadow:0 7px 0 #c5a8d9,0 13px 25px #c9b5dc66,inset 0 3px 9px #fff;cursor:pointer;animation:buttonGlow 2.4s ease-in-out infinite}
+button:before,button:after{content:"✦";position:absolute;color:#fff;font-size:25px;text-shadow:0 0 9px #fff,0 0 14px #e5a7ed;pointer-events:none}
+button:before{left:9%;top:9px}button:after{right:9%;bottom:5px}
 button span{position:relative;z-index:1;display:block}
-button:not(:disabled):active{transform:translateY(3px);box-shadow:0 3px 0 #ddcde9,0 7px 16px #c9b5dc44}
-button:disabled{opacity:.72;cursor:default}
-.note{margin:20px 0 0;font-size:12px;line-height:1.9;color:#ad9bb9}
-#result{display:none;margin-top:20px;padding:20px 14px;border:2px dashed #e6cce9;border-radius:27px;background:linear-gradient(135deg,#fffafd,#f7f1ff)}
-#result.show{display:block;animation:pop .4s ease-out}#resultTitle{margin:0 0 8px;color:#c184b8;font-size:27px}#resultText{margin:0;font-weight:800;line-height:1.7;color:#8b79a2}
+button:not(:disabled):active{transform:translateY(3px);box-shadow:0 3px 0 #c5a8d9,0 7px 16px #c9b5dc44}
+button:disabled{opacity:.72;cursor:default;animation:none}
+@keyframes buttonGlow{50%{filter:brightness(1.07) drop-shadow(0 0 10px #fff2b9)}}
+.note{margin:18px 0 0;font-size:12px;line-height:1.9;color:#a18cae}
+#result{display:none;margin-top:20px;padding:20px 14px;border:3px dashed #e6bddd;border-radius:30px;background:linear-gradient(135deg,#fffafd,#f7f1ff)}
+#result.show{display:block;animation:pop .4s ease-out}#resultTitle{margin:0 0 8px;color:#c16ca9;font-size:28px}#resultText{margin:0;font-weight:900;line-height:1.7;color:#806c9b}
 #screenshotNote{display:none;margin:13px 0 0;color:#a47bbd;font-weight:1000}
 .confetti{position:fixed;top:-50px;z-index:5;pointer-events:none;font-size:30px;animation:fall var(--dur) ease-in forwards}
 @keyframes fall{to{transform:translate3d(var(--dx),110vh,0) rotate(720deg);opacity:.95}}
 @keyframes pop{from{opacity:0;transform:scale(.88)}to{opacity:1;transform:scale(1)}}
-@media(max-width:420px){.card{padding:30px 19px 26px;border-radius:37px}.candy-scene{height:130px;gap:5px}.sub{font-size:13px}input{height:60px;font-size:24px}button{min-height:72px}}
+@media(max-width:420px){body{padding:34px 10px 42px}.card{padding:26px 17px 27px;border-radius:39px}.candy-scene{height:178px;gap:3px}.candy-scene span{width:clamp(49px,15vw,68px);height:clamp(66px,19vw,91px)}.sub{font-size:13px}input{height:60px;font-size:24px}button{min-height:74px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
 </style>
 </head>
