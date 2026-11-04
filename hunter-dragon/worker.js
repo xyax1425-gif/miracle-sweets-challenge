@@ -6,7 +6,7 @@ export default {
       try {
         const body = await request.json();
         const number = String(body.number ?? "").trim();
-        if (!/^\\d{4}$/.test(number)) return Response.json({ error: "抽選番号を4桁の数字で入力してください。" }, { status: 400 });
+        if (!/^\d{4}$/.test(number)) return Response.json({ error: "抽選番号を4桁の数字で入力してください。" }, { status: 400 });
         const id = env.HUNTER_DRAGON_TICKET_STORE.idFromName("global-hunter-dragon-ticket-draw");
         const store = env.HUNTER_DRAGON_TICKET_STORE.get(id);
         return await store.fetch("https://hunter-dragon-ticket-store/draw", {
