@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#160d2b">
+<title>ミラクル・ハンターズチャレンジ</title>
+<style>
+*{box-sizing:border-box}
+:root{color-scheme:dark}
+body{margin:0;min-height:100svh;padding:22px 14px;display:grid;place-items:center;overflow-x:hidden;font-family:system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;color:#fff;background:radial-gradient(ellipse at 18% 12%,#6532a5 0,transparent 38%),radial-gradient(ellipse at 88% 82%,#b46b16 0,transparent 35%),linear-gradient(145deg,#100b24,#1b1239 55%,#080d1d);position:relative}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.2;background:repeating-linear-gradient(115deg,transparent 0 42px,#d8b5ff22 43px 45px),radial-gradient(circle at center,transparent 0 35%,#0008 100%)}
+.wrap{width:100%;max-width:590px;position:relative;z-index:1}
+.card{position:relative;overflow:hidden;text-align:center;padding:29px 22px 25px;border:1px solid #e6b84e;border-radius:18px;background:linear-gradient(145deg,#241747f5,#11162df7 72%);box-shadow:0 0 0 5px #c58bff18,0 24px 70px #000b}
+.card:before{content:"";position:absolute;inset:0 0 auto;height:7px;background:linear-gradient(90deg,#9c55e8,#f4d16d,#fff,#f4a62c,#9c55e8)}
+.top{color:#f5d477;font-size:11px;font-weight:1000;letter-spacing:.34em}
+.title{margin:12px 0 5px;font-size:clamp(30px,8vw,46px);font-weight:1000;line-height:1.18;letter-spacing:.02em;background:linear-gradient(90deg,#e9c6ff,#fff,#ffe18b);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 3px 0 #552d85)}
+.subtitle{color:#d9c9f0;font-size:14px;font-weight:800;margin:12px 0 0}
+.orb{position:relative;height:225px;margin:14px auto 12px;max-width:440px;display:grid;place-items:center;isolation:isolate}
+.aura{position:absolute;width:170px;height:170px;border-radius:50%;background:radial-gradient(circle,#fff8c8 0 5%,#ffb82e99 18%,#9f50f488 42%,transparent 72%);filter:blur(4px);animation:pulse 2s ease-in-out infinite}
+.orb:before,.orb:after{content:"";position:absolute;width:210px;height:210px;border:2px solid #e7bdff77;border-radius:50%;transform:rotateX(66deg) rotate(25deg);box-shadow:0 0 24px #a15aff77}
+.orb:after{width:245px;height:245px;border-color:#ffd36b66;transform:rotateX(66deg) rotate(-35deg)}
+.starball{position:relative;width:116px;height:116px;border-radius:50%;border:3px solid #ffd66d;background:radial-gradient(circle at 35% 28%,#fff4b5,#f8a52c 52%,#b94b16);box-shadow:0 0 22px #ffbf45, inset -10px -12px 18px #71310b77;display:grid;place-items:center;color:#9d3510;font-size:34px;font-weight:1000;z-index:1}
+.starball:before{content:"✦  ✦";position:absolute;font-size:18px;letter-spacing:12px;transform:translateY(-25px)}
+.spark{position:absolute;color:#ffe08b;font-size:25px;animation:blink 1.6s ease-in-out infinite}
+.s1{left:10%;top:22%}.s2{right:9%;top:26%;animation-delay:.5s}.s3{left:18%;bottom:12%;animation-delay:.9s}.s4{right:16%;bottom:12%;animation-delay:.3s}
+@keyframes pulse{50%{transform:scale(1.18);opacity:.7}}@keyframes blink{50%{opacity:.3;transform:scale(.7)}}
+.label{text-align:left;margin:12px 0 8px;font-weight:900;color:#f7d987}
+input{width:100%;height:62px;border:2px solid #e9bd5c;border-radius:10px;background:#fff;color:#211537;text-align:center;font-size:28px;font-weight:900;letter-spacing:.25em;outline:none;box-shadow:inset 0 2px 5px #0002}
+input:focus{border-color:#fff;box-shadow:0 0 0 4px #c28cff55}
+input::placeholder{color:#aaa2b6;font-size:17px;letter-spacing:.05em}
+button{width:100%;height:66px;margin-top:17px;border:0;border-radius:10px;background:linear-gradient(180deg,#ffe99a,#f3ad38 55%,#c8791d);color:#28183a;font-size:22px;font-weight:1000;letter-spacing:.08em;box-shadow:0 6px 0 #754012,0 12px 20px #0005;cursor:pointer;transition:filter .15s,transform .15s}
+button:active{transform:translateY(4px);box-shadow:0 2px 0 #754012}button:disabled{opacity:.7;cursor:default}
+.note{margin:17px 0 0;color:#c6b8dc;font-size:11px;line-height:1.8}
+#result{display:none;margin-top:19px;padding:20px 12px;border:2px solid #f5d16f;border-radius:12px;background:linear-gradient(135deg,#fff,#fff0c9);color:#241638}
+#result.show{display:block;animation:pop .35s ease-out}
+#resultTitle{margin:0 0 8px;color:#a94bce;font-size:28px}
+#resultText{margin:0;font-weight:900;line-height:1.7}
+#shot{display:none;color:#a65c10;font-weight:1000;margin:12px 0 0}
+@keyframes pop{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
+@media(max-width:400px){.card{padding:25px 17px 22px}.orb{height:195px}.title{font-size:32px}}
+</style>
+</head>
+<body><main class="wrap"><section class="card">
+<div class="top">ONE CHANCE · POWER UP</div>
+<h1 class="title">ミラクル・ハンターズ<br>チャレンジ</h1>
+<p class="subtitle">念の力か、限界突破のパワーか。運命をつかめ！</p>
+<div class="orb" aria-hidden="true"><span class="spark s1">✦</span><span class="spark s2">★</span><span class="spark s3">✧</span><span class="spark s4">✦</span><div class="aura"></div><div class="starball">★</div></div>
+<p class="label">くじ券の番号（4桁）</p>
+<input id="ticket" type="text" inputmode="numeric" maxlength="4" autocomplete="off" placeholder="番号を入力" aria-label="抽選番号">
+<button id="draw" type="button">ミラクルスタート！</button>
+<section id="result" aria-live="polite"><h2 id="resultTitle"></h2><p id="resultText"></p><p id="shot">📸 スクリーンショットを撮ってね！</p></section>
+<p class="note">抽選は1つの番号につき1回限りです。使用済みの番号は、別のスマホからも再使用できません。</p>
+</section></main>
+<script>
+const input=document.getElementById("ticket"),button=document.getElementById("draw"),result=document.getElementById("result"),title=document.getElementById("resultTitle"),msg=document.getElementById("resultText"),shot=document.getElementById("shot");
+button.addEventListener("click",async()=>{const number=input.value.trim();if(!/^\\d{4}$/.test(number)){alert("4桁の番号を入力してください！");input.focus();return}button.disabled=true;input.disabled=true;button.textContent="パワーをためて…";try{const r=await fetch("/api/draw",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({number})});const data=await r.json();if(!r.ok)throw new Error(data.error||"抽選できませんでした");title.textContent=data.win?"🏆 超・大当たり！！":"今回は残念…";msg.textContent=data.win?"おめでとう！景品GET！スタッフに画面を見せてね。":"参加ありがとう！またのチャレンジを待ってるよ！";shot.style.display=data.win?"block":"none";result.classList.add("show");button.textContent="抽選終了"}catch(e){alert(e.message);button.disabled=false;input.disabled=false;button.textContent="ミラクルスタート！"}});
+</script></body></html>
